@@ -1,0 +1,41 @@
+# dsh-session-manager bundle patch layer.
+# Inserted into a profile's plugin tree when the bundle is installed.
+#
+# All config fields are optional (they default in code). Uncomment and fill the
+# ones your deployment needs. `name` MUST be this package's npm name — after
+# install the bundle's files live under the profile's node_modules, so the row
+# references the package, not a relative path.
+- insert:
+    - id: dsh-session-manager
+      name: dsh-session-manager
+      # A patch row's `config` REPLACES the whole config object (no merging),
+      # and every field defaults in the plugin's schemastery schema — so a
+      # deployment that needs no overrides should omit `config` entirely.
+      # Uncomment and fill ONLY what your deployment needs:
+      # config:
+      #   # Explicit LLM route for title/summary generation. Omit BOTH to inherit
+      #   # the session's logged request route. Must be set as a pair.
+      #   provider: "deepseek"
+      #   model: "deepseek-v4-pro"
+      #   # Where the JSONL persistence backend writes session artifacts;
+      #   # `session_delete` removes the per-session directory from here.
+      #   # Defaults to <dshHome>/sessions (DSH_HOME env or ~/.dsh) — matches the
+      #   # standard @deepseek-ai/dsh-session-persistence-jsonl layout. Override
+      #   # only if your profile points it elsewhere.
+      #   sessionRoot: "C:/Users/you/.dsh/sessions"
+      #   # Root of the durable cache trees; `session_delete` removes the
+      #   # per-session projection cache file <root>/session_projcache/sessions/<id>.json.
+      #   # Defaults to <dshHome>/storages. Override only if needed.
+      #   projCacheRoot: "C:/Users/you/.dsh/storages"
+      #   # Optional official session-query SQLite FTS index to prune rows from on
+      #   # delete (match the `path` of @deepseek-ai/dsh-session-query-sqlite;
+      #   # skip when it runs as ':memory:').
+      #   officialFtsPath: "C:/Users/you/.dsh/session-query.sqlite"
+      #   # Optional local index/summary store path (defaults to ~/.dsh-session-manager/index.sqlite).
+      #   indexPath: "C:/Users/you/.dsh-session-manager/index.sqlite"
+      #   # Optional caps / limits (all have defaults).
+      #   titleMaxOutputTokens: 64
+      #   summaryMaxOutputTokens: 1024
+      #   timeoutMs: 60000
+      #   maxInputBytes: 32768
+      #   maxResults: 20

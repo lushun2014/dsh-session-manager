@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Session Manager",
+    "description": "LLM title/summary generation, SQLite-indexed session search, and hard (no-trace) session deletion for DeepSeek Harness."
+  }
+}
